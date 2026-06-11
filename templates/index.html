@@ -1,0 +1,50 @@
+{% extends "import.html" %} 
+{% block content %}
+
+<div class="container py-4 app-shell">
+    <div class="card shadow-sm mb-4 border-0 upload-card">
+        <div class="card-body text-center">
+            <h2 class="card-title mb-2">Plant Disease Classification</h2>
+            <p class="text-muted mb-4">Upload a plant leaf image to identify disease, get treatment guidance, and receive a recommended product link.</p>
+            <form id="upload-file" method="post" enctype="multipart/form-data">
+                <label class="btn btn-success btn-lg mb-3 px-4" for="imageUpload">Choose Image</label>
+                <input type="file" name="file" class="d-none" id="imageUpload" accept=".png, .jpg, .jpeg">
+            </form>
+            <div class="image-section" style="display:none;">
+                <div class="image-preview-wrapper position-relative d-inline-block rounded overflow-hidden">
+                    <img id="imagePreview" class="img-fluid" src="#" style="width:300px;height:300px; object-fit:cover;"/>
+                    <div id="regionOverlay" style="display:none; position:absolute; inset:0; pointer-events:none;"></div>
+                </div>
+                <p id="regionNote" class="small text-muted mt-2 mb-0" style="display:none;">Boxes show the image regions that most influenced the disease prediction.</p>
+                <div class="mt-3">
+                    <button type="button" class="btn btn-primary btn-lg px-5" id="btn-predict">
+                        <span class="predict-label">Predict</span>
+                    </button>
+                    <p id="predictStatus" class="small text-muted mt-2 mb-0" aria-live="polite"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div id="resultsPanel" class="card shadow-sm mb-4 border-0" style="display:none;">
+                <div class="card-body">
+                    <div id="resultCard" class="alert alert-info border-0 rounded-3 text-center" style="display:none; font-size:1.05rem; font-weight:600;"></div>
+                    <div id="remedyCard" class="alert alert-light border rounded-3" style="display:none;">
+                        <h5 class="mb-2">Remedy</h5>
+                        <p id="remedy" class="mb-0" style="font-size:0.98rem; line-height:1.6;"></p>
+                    </div>
+                    <div id="medicineCard" class="alert alert-secondary border rounded-3" style="display:none;">
+                        <h5 class="mb-2">Recommended Product</h5>
+                        <p id="medicine" class="mb-0" style="font-size:0.98rem; line-height:1.6;"></p>
+                    </div>
+                    <div id="medicineButtonWrapper" style="display:none;" class="text-center mt-3">
+                        <a id="medicineBtn" href="#" target="_blank" class="btn btn-success btn-lg">View recommendation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

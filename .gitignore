@@ -1,0 +1,13 @@
+.venv/
+.commandcode/
+__pycache__/
+*.py[cod]
+
+# Local editor/runtime files
+.vscode/
+uploads/
+flask-server.log
+flask-server-error.log
+
+# Legacy TensorFlow model is unused and exceeds GitHub's 100 MB file limit.
+model.h5

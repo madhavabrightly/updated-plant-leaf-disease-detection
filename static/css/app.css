@@ -1,0 +1,54 @@
+body {
+    background: #f4f7f5;
+    color: #24332a;
+}
+
+.app-navbar {
+    box-shadow: 0 2px 12px rgba(20, 45, 29, 0.18);
+}
+
+.app-shell {
+    max-width: 920px;
+}
+
+.upload-card,
+#resultsPanel {
+    border-radius: 18px;
+}
+
+.image-preview-wrapper {
+    border: 1px solid #d6e2d9;
+    background: #eef4ef;
+    box-shadow: 0 12px 32px rgba(27, 68, 39, 0.13);
+}
+
+#btn-predict {
+    min-width: 190px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#btn-predict:disabled {
+    cursor: wait;
+    opacity: 0.75;
+}
+
+#predictStatus {
+    min-height: 20px;
+}
+
+#resultCard {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1rem;
+        white-space: normal;
+    }
+
+    .image-preview-wrapper,
+    #imagePreview {
+        width: 280px !important;
+        height: 280px !important;
+    }
+}

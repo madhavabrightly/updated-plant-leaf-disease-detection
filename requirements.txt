@@ -8,6 +8,7 @@ torchvision>=0.15.0
 # Web Framework
 flask>=2.3.0
 werkzeug>=2.3.0
+gunicorn>=22.0.0
 
 # Image Processing
 pillow>=9.0.0

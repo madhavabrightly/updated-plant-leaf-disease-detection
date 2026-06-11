@@ -79,6 +79,26 @@ http://127.0.0.1:5000
 The app automatically loads `model.pt` and verifies that `classes.json`
 matches the class order embedded in the checkpoint.
 
+## Deploy On Render
+
+The repository includes `render.yaml` for a production deployment.
+
+1. Sign in to [Render](https://render.com/).
+2. Choose **New > Blueprint**.
+3. Connect this GitHub repository:
+   `madhavabrightly/updated-plant-leaf-disease-detection`
+4. Select the repository and apply the blueprint.
+5. Wait for the build and deployment to finish.
+
+Render installs `requirements.txt` and starts the app with:
+
+```bash
+gunicorn app:app --workers 1 --threads 2 --timeout 120
+```
+
+The free Render service sleeps after inactivity, so its first request after
+sleeping can take about one minute. A paid instance avoids this cold start.
+
 ## Prediction API
 
 Send an image to the `/predict` endpoint:
